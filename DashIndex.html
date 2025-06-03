@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer Auth & Dashboard</title>
+  <link rel="stylesheet" href="Dashstyle.css">
+  </head>
+  <body>
+  <div class="container">
+    <div id="loginForm">
+      <h2>Volunteer Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <div id="loginEmailError" class="error"></div>
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <div id="loginPasswordError" class="error"></div>
+      <button onclick="login()">Login</button>
+      <div class="link">
+        <a onclick="showForgotForm()">Forgot Password?</a><br />
+        New? <a onclick="showRegisterForm()">Create New Account</a>
+      </div>
+    </div>
+
+    <div id="registerForm" class="hidden">
+      <h2>Volunteer Registration</h2>
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="text" id="phone" placeholder="Mobile Number" required />
+      <input type="text" id="address" placeholder="Address (City, State, Zip)" required />
+      <input type="email" id="email" placeholder="Gmail ID" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="date" id="dob" placeholder="Date of Birth" required />
+      <div id="registerError" class="error"></div>
+      <button onclick="register()">Register as Volunteer</button>
+      <div class="link">
+        Already have an account? <a onclick="showLoginForm()">Login Here</a>
+      </div>
+    </div>
+
+    <div id="forgotForm" class="hidden">
+      <h2>Reset Password</h2>
+      <input type="email" id="forgotEmail" placeholder="Enter your email address" required />
+      <div id="forgotError" class="error"></div>
+      <button onclick="sendResetLink()">Send Reset Link</button>
+      <div class="link">
+        <a onclick="showLoginForm()">Back to Login</a>
+      </div>
+    </div>
+
+    <div id="dashboard" class="hidden">
+      <h2>Volunteer Dashboard</h2>
+      <nav class="dashboard-nav">
+        <a onclick="showDashboardSection('viewProfileSection')">View Profile</a>
+        <a onclick="showDashboardSection('editProfileSection')">Edit Profile</a>
+        <a onclick="showDashboardSection('tasksSection')">My Tasks</a>
+        <a onclick="logout()">Logout</a>
+      </nav>
+
+      <div id="viewProfileSection" class="dashboard-section">
+        <h3>My Profile</h3>
+        <p><strong>Name:</strong> <span id="dashboardName">John Doe</span></p>
+        <p><strong>Email:</strong> <span id="dashboardEmail">john.doe@gmail.com</span></p>
+        <p><strong>Mobile:</strong> <span id="dashboardPhone">9876543210</span></p>
+        <p><strong>Address:</strong> <span id="dashboardAddress">123 Volunteer St, City, State, 12345</span></p>
+        <p><strong>DOB:</strong> <span id="dashboardDob">1990-01-01</span></p>
+        <button onclick="showDashboardSection('editProfileSection')">Edit Profile</button>
+      </div>
+
+      <div id="editProfileSection" class="dashboard-section hidden">
+        <h3>Edit Profile</h3>
+        <input type="text" id="editName" placeholder="Full Name" />
+        <input type="text" id="editPhone" placeholder="Mobile Number" />
+        <input type="text" id="editAddress" placeholder="Address (City, State, Zip)" />
+        <div id="editProfileError" class="error"></div>
+        <button onclick="saveProfile()">Save Changes</button>
+        <button onclick="showDashboardSection('viewProfileSection')">Cancel</button>
+      </div>
+
+      <div id="tasksSection" class="dashboard-section hidden">
+        <h3>My Tasks</h3>
+        <h4>Pending Tasks</h4>
+        <ul id="pendingTasksList">
+          <li>Task A (Due: 2025-06-10)</li>
+          <li>Task C (Due: 2025-06-15)</li>
+        </ul>
+        <h4>Completed Tasks</h4>
+        <ul id="completedTasksList">
+          <li>Task B (Completed: 2025-05-28)</li>
+        </ul>
+        <button onclick="addTask()">Add New Task</button>
+        <div id="addTaskForm" class="hidden">
+            <input type="text" id="newTaskDescription" placeholder="Task Description">
+            <input type="date" id="newTaskDueDate">
+            <button onclick="saveNewTask()">Save Task</button>
+            <button onclick="cancelAddTask()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="Dashscript.js"></script>
+</body>
+</html>
