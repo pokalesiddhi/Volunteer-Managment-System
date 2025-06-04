@@ -1,0 +1,193 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #c4b5fd, #dbeafe);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Transparent container */
+.container {
+  width: 90%;
+  max-width: 550px;
+  padding: 30px 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #4f46e5;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+
+  animation: popIn 0.5s ease-out;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h2 {
+  animation: popIn 0.5s ease-out;
+}
+
+
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  margin-top: 10px; /* Added for buttons */
+}
+
+button:hover {
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  transform: scale(1.03);
+}
+
+/* Link section */
+.link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+.link a {
+  color: #4f46e5;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.link a:hover {
+  color: #4338ca;
+}
+
+/* Error message styling */
+.error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Utility class to hide sections */
+.hidden {
+  display: none;
+}
+
+/* Dashboard specific styles */
+.dashboard-nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dashboard-nav a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.dashboard-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #4338ca;
+}
+
+.dashboard-section h3 {
+    text-align: center;
+    color: #6366f1;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.dashboard-section p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.dashboard-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-section li {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-left: 5px solid #8b5cf6;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #333;
+}
+
+/* Responsive on smaller screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+
+  input,
+  button {
+    font-size: 15px;
+  }
+
+  .dashboard-nav {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .dashboard-nav a {
+      margin-bottom: 8px;
+      width: 80%;
+      text-align: center;
+  }
+}
